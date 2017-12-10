@@ -1,6 +1,6 @@
-package dao;
+package ssm.dao;
 
-import model.Admin;
+import ssm.model.Admin;
 
 public interface AdminMapper {
     int deleteByPrimaryKey(String id);

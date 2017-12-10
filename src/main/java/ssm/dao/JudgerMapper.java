@@ -1,6 +1,6 @@
-package dao;
+package ssm.dao;
 
-import model.Judger;
+import ssm.model.Judger;
 
 public interface JudgerMapper {
     int deleteByPrimaryKey(Short id);

@@ -1,6 +1,6 @@
-package dao;
+package ssm.dao;
 
-import model.Athlete;
+import ssm.model.Athlete;
 
 public interface AthleteMapper {
     int deleteByPrimaryKey(Integer id);

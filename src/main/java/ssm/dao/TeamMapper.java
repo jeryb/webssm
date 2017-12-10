@@ -1,6 +1,6 @@
-package dao;
+package ssm.dao;
 
-import model.Team;
+import ssm.model.Team;
 
 public interface TeamMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,6 +1,6 @@
-package dao;
+package ssm.dao;
 
-import model.Project;
+import ssm.model.Project;
 
 public interface ProjectMapper {
     int deleteByPrimaryKey(Integer id);

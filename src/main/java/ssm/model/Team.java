@@ -1,4 +1,4 @@
-package model;
+package ssm.model;
 
 public class Team {
     private Integer id;
