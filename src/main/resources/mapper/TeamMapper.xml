@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.TeamMapper" >
+  <resultMap id="BaseResultMap" type="model.Team" >
+    <constructor >
+      <idArg column="ID" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+      <arg column="Team_Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Leader_Id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Leader_Phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Doctor_Phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Coach_Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Coach_Phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Coach_Sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Coach_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PWD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Leader_Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Doctor_Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, Team_Name, Leader_Id, Leader_Phone, Doctor_Phone, Coach_Name, Coach_Phone, Coach_Sex, 
+    Coach_ID, PWD, Leader_Name, Doctor_Name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from team
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from team
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="model.Team" >
+    insert into team (ID, Team_Name, Leader_Id, 
+      Leader_Phone, Doctor_Phone, Coach_Name, 
+      Coach_Phone, Coach_Sex, Coach_ID, 
+      PWD, Leader_Name, Doctor_Name
+      )
+    values (#{id,jdbcType=DECIMAL}, #{teamName,jdbcType=VARCHAR}, #{leaderId,jdbcType=VARCHAR}, 
+      #{leaderPhone,jdbcType=VARCHAR}, #{doctorPhone,jdbcType=VARCHAR}, #{coachName,jdbcType=VARCHAR}, 
+      #{coachPhone,jdbcType=VARCHAR}, #{coachSex,jdbcType=VARCHAR}, #{coachId,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{leaderName,jdbcType=VARCHAR}, #{doctorName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.Team" >
+    insert into team
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="teamName != null" >
+        Team_Name,
+      </if>
+      <if test="leaderId != null" >
+        Leader_Id,
+      </if>
+      <if test="leaderPhone != null" >
+        Leader_Phone,
+      </if>
+      <if test="doctorPhone != null" >
+        Doctor_Phone,
+      </if>
+      <if test="coachName != null" >
+        Coach_Name,
+      </if>
+      <if test="coachPhone != null" >
+        Coach_Phone,
+      </if>
+      <if test="coachSex != null" >
+        Coach_Sex,
+      </if>
+      <if test="coachId != null" >
+        Coach_ID,
+      </if>
+      <if test="pwd != null" >
+        PWD,
+      </if>
+      <if test="leaderName != null" >
+        Leader_Name,
+      </if>
+      <if test="doctorName != null" >
+        Doctor_Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="teamName != null" >
+        #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderId != null" >
+        #{leaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderPhone != null" >
+        #{leaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorPhone != null" >
+        #{doctorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coachName != null" >
+        #{coachName,jdbcType=VARCHAR},
+      </if>
+      <if test="coachPhone != null" >
+        #{coachPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coachSex != null" >
+        #{coachSex,jdbcType=VARCHAR},
+      </if>
+      <if test="coachId != null" >
+        #{coachId,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderName != null" >
+        #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Team" >
+    update team
+    <set >
+      <if test="teamName != null" >
+        Team_Name = #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderId != null" >
+        Leader_Id = #{leaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderPhone != null" >
+        Leader_Phone = #{leaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorPhone != null" >
+        Doctor_Phone = #{doctorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coachName != null" >
+        Coach_Name = #{coachName,jdbcType=VARCHAR},
+      </if>
+      <if test="coachPhone != null" >
+        Coach_Phone = #{coachPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="coachSex != null" >
+        Coach_Sex = #{coachSex,jdbcType=VARCHAR},
+      </if>
+      <if test="coachId != null" >
+        Coach_ID = #{coachId,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        PWD = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderName != null" >
+        Leader_Name = #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorName != null" >
+        Doctor_Name = #{doctorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Team" >
+    update team
+    set Team_Name = #{teamName,jdbcType=VARCHAR},
+      Leader_Id = #{leaderId,jdbcType=VARCHAR},
+      Leader_Phone = #{leaderPhone,jdbcType=VARCHAR},
+      Doctor_Phone = #{doctorPhone,jdbcType=VARCHAR},
+      Coach_Name = #{coachName,jdbcType=VARCHAR},
+      Coach_Phone = #{coachPhone,jdbcType=VARCHAR},
+      Coach_Sex = #{coachSex,jdbcType=VARCHAR},
+      Coach_ID = #{coachId,jdbcType=VARCHAR},
+      PWD = #{pwd,jdbcType=VARCHAR},
+      Leader_Name = #{leaderName,jdbcType=VARCHAR},
+      Doctor_Name = #{doctorName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
